@@ -1,0 +1,10 @@
+Overview:
+main.py - starting point
+deck.py - A class to keep track of the count of the cards dealt etcetra
+player.py - A class for player to keep track of the player's cards and money
+dealer.py - A class for dealer to keep track of the dealer's cards and money
+
+
+Elaborate steps:
+1) Create main.py and let's print the starting statements.
+2) 
