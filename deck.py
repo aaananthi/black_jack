@@ -1,38 +1,28 @@
 import random
+from card import Card
 
-class DeckOfCards:
-    SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
-    RANKS = [
-        "Ace",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "Jack",
-        "Queen",
-        "King",
-    ]
 
+class Deck:
     def __init__(self):
-        self.__cards = []
+        self.cards = []
         self.create_deck()
+        self.shuffle()
 
     def create_deck(self):
-        for i in self.SUITS:
-            for j in self.RANKS:
-                self.__cards.append((j, i))
-                
+        for suit in range(4):
+            for card in range(1, 14):
+                new_card = Card(suit, card)
+                self.cards.append(new_card)
 
-    def shuffle_deck(self):
-        random.shuffle(self.__cards)
+    def shuffle(self):
+        random.shuffle(self.cards)
 
-    def deal_card(self):
-        if self.__cards:
-            return self.__cards.pop()
-        else:
-            return None
+    def deal(self, num_cards):
+        dealt_cards = []
+
+        for idx in range(num_cards):
+            # we will treat the end of the list as the top of the deck
+            top_card = self.cards.pop()
+            dealt_cards.append(top_card)
+
+        return dealt_cards
