@@ -1,11 +1,12 @@
-from card import Card
+from player import Player
+from dealer import Dealer
+from game import Game
 
-def main():
-    print("Welcome to Blackjack! \n")
+STARTING_BALANCE = 500
+player = Player(STARTING_BALANCE)
+dealer = Dealer()
+game = Game(player, dealer)
 
-    card = Card("Ace", "Spade")
-    print(card.display_card())
-
-
-if __name__ == '__main__':
-    main()
+print("Welcome to Blackjack!")
+print()
+game.start_game()
